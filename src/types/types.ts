@@ -54,7 +54,59 @@ export type TokenColors = {
 
 export type ColorKeyType = keyof TokenColors;
 
+export type TypographyType = {
+  fontFamilyBase: string;
+  fontFamilyHeadings: string;
+  fontSizeBase: string;
+  fontWeightHeavy: string;
+  fontWeightNormal: string;
+  fontWeightMedium: string;
+  fontWeightLight: string;
+  fontWeightVLight: string;
+  linkTextDecoration: string;
+  lineHeight: string;
+  headerLineHeight: string;
+  headerTextTransform: string;
+};
+
 export type ThemeType = {
   tokenColors: TokenColors;
   spacing: SpacingType;
+  fontSizes: FontSizesType;
+  typography: TypographyType;
 };
+
+export type WithTheme = {
+  theme: ThemeType;
+};
+
+export type WordBreakType =
+  | "normal"
+  | "break-all"
+  | "keep-all"
+  | "break-word"
+  | "inherit"
+  | "initial"
+  | "unset";
+
+export type OverflowWrapType =
+  | "normal"
+  | "anywhere"
+  | "revert"
+  | "revert-layer"
+  | "break-word"
+  | "inherit"
+  | "initial"
+  | "unset";
+
+export type FontSizeType =
+  | "xs"
+  | "s"
+  | "m"
+  | "l"
+  | "xl"
+  | "xxl"
+  | "xxxl"
+  | "xxxxl";
+
+export type FontSizesType = { [key in FontSizeType]: string };

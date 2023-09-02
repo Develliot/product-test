@@ -14,6 +14,7 @@ body {
   margin: 0;
   font-family: Gotham, helvetica, arial, sans-serif;
   color: var(--ice);
+  box-sizing: border-box;
 }
 
 body {

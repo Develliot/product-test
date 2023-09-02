@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 
 import { Product } from "@/types/types";
+import Layout from "@/components/Layout";
 
 // we probably should use /product/[id] route here instead of /product
 // but it's what the tests are asking for
@@ -39,8 +40,8 @@ export default function ProductPage() {
   console.log(data);
 
   return (
-    <main>
+    <Layout>
       <h1>{product.name}</h1>
-    </main>
+    </Layout>
   );
 }

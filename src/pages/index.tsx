@@ -1,6 +1,7 @@
 // import { Product } from "@/types/types";
 // import { gql, useQuery } from "@apollo/client";
 import Box from "@/components/Box";
+import Layout from "@/components/Layout";
 import NextLink from "next/link";
 
 // import { Product } from "@/types/types";
@@ -35,7 +36,7 @@ export default function Home() {
   // if (error) return `Error! ${error.message}`;
 
   return (
-    <main>
+    <Layout>
       <div className="home">
         <figure>
           <img
@@ -59,6 +60,6 @@ export default function Home() {
           ))}
         </ul> */}
       </div>
-    </main>
+    </Layout>
   );
 }
