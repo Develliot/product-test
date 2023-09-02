@@ -69,11 +69,19 @@ export type TypographyType = {
   headerTextTransform: string;
 };
 
+export type BreakPointsType = {
+  mobile: string;
+  tablet: string;
+  desktop: string;
+  desktopLarge: string;
+};
+
 export type ThemeType = {
   tokenColors: TokenColors;
   spacing: SpacingType;
   fontSizes: FontSizesType;
   typography: TypographyType;
+  breakpoints: BreakPointsType;
 };
 
 export type WithTheme = {

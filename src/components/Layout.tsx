@@ -57,7 +57,7 @@ export const SkipToMain = styled.a`
 `;
 
 export const StyledLink = styled.a`
-  display: inline-block;
+  display: flex;
 `;
 
 export const Image = styled.img`
@@ -68,11 +68,9 @@ export const Image = styled.img`
 `;
 
 export const LogoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   width: auto;
-  height: 2em;
+  height: 2.5em;
+  margin: auto;
 `;
 
 export const BasketIconWrapper = styled.div`

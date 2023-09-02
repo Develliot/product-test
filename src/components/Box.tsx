@@ -34,12 +34,8 @@ export const StyledBox = styled.div<StyledBoxProps>`
     theme.tokenColors.hemocyanin};
   padding: ${({ theme, backgroundColor }: StyledBoxProps) =>
     backgroundColor ? theme.spacing.s : 0};
-  margin: 0 0 ${({ theme }: StyledBoxProps) => theme.spacing.m} 0;
+  margin: 0 0 0 0;
   border-radius: ${({ borderRadius }: StyledBoxProps) => borderRadius || 0};
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   background-color: ${({
     theme: { tokenColors },

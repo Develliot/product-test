@@ -10,6 +10,8 @@ import styled, { css } from "styled-components";
 import { WithTheme } from "@/types/types";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLElement> & {
+  /** flag to stretch but to 100% width */
+  full?: boolean;
   /** styled-components polymorphism where you can use the styling of a link but convert to another element like a button */
   ref?: Ref<HTMLElement>;
   /** styled-component polymorphic feature so you take the styling of a link and cast the component to be a "span" for example */
@@ -22,15 +24,25 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLElement> & {
 type StyledButtonProps = ButtonProps & WithTheme;
 
 const StyledButton = styled.button<StyledButtonProps>`
-  min-height: 2em;
-  min-width: 2em;
+  min-height: 2.5em;
+  min-width: 2.5em;
+  padding: 1em;
+  font-size: 1em;
+  border-style: solid;
+  border-radius: 0.5em;
 
   :hover {
     cursor: pointer;
   }
 
   ${(props: StyledButtonProps) =>
-    props.variant === "primary" &&
+    props.full &&
+    css`
+      width: 100%;
+    `}
+
+  ${(props: StyledButtonProps) =>
+    (!props.variant || props.variant === "primary") &&
     css`
       background-color: ${props.theme.tokenColors.sohoLights};
       border-color: ${props.theme.tokenColors.sohoLights};

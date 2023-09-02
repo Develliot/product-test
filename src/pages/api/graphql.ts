@@ -53,4 +53,5 @@ const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
 });
+
 export default startServerAndCreateNextHandler(apolloServer);
