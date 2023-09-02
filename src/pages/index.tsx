@@ -9,7 +9,7 @@ import NextLink from "next/link";
 // import { Product } from "@/types/types";
 
 export default function Home() {
-  //  I envisaged this being a list of products with links to the product pages
+  //  I envisaged this being a list of products with links to the product pages which why there are two queries available
 
   // const GET_PRODUCTS = gql`
   //   query getProducts {

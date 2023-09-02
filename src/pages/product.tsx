@@ -67,8 +67,8 @@ export const GET_PRODUCTS = gql`
   }
 `;
 
-// we probably should use /product/[id] route here instead of /product
-// but it's what the tests are asking for
+// we probably should use /product/[id] route here instead of /product because it's likely they'll be more than one
+// but I'm sticking with what the tests are asking for
 export default function ProductPage() {
   const [cartState, setState] = useCartContext();
   const [quantityToAdd, setQuantityToAdd] = useState<number>(1);

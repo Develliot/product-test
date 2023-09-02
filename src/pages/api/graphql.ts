@@ -7,10 +7,11 @@ const products = data.products;
 
 // following https://www.airplane.dev/blog/how-to-build-a-graphql-api-with-next-js
 
-// Next JS is a backend frameworks and I was interested in seeing how to make the /api route work with graphql
-// which is why I've gone a little off piste here
+// NextJS is a backend framework and I was interested in seeing how to make the /api route work with graphql
+// which is why I've gone a little off piste here, I also wanted to have a play with apollo server
 
 // would be nice to get this working with graphiql so I don't have use postman, self documenting etc
+
 // I would like to either derrive the typeDefs from the TS types or use the TS types directly
 // I haven't used graphql in about 4 years so I'm a bit rusty, not sure about the best way to do error handling just yet
 
