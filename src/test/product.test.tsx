@@ -6,6 +6,7 @@ import Product, { GET_PRODUCTS } from "../pages/product";
 import { CartContextProvider } from "@/contexts/CartContext";
 import { theme } from "@/styles/theme";
 import { data } from "@/server/db.js";
+import { ReactNode } from "react";
 
 const firstProduct = data.products[0];
 const mocks = [
@@ -24,15 +25,19 @@ const mocks = [
   },
 ];
 
+const TestWrapper = ({ children }: { children: ReactNode }) => (
+  <MockedProvider mocks={mocks} addTypename={false}>
+    <CartContextProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </CartContextProvider>
+  </MockedProvider>
+);
+
 test("should be able to increase and decrease product quantity", async () => {
   const { getByText, getByTitle } = render(
-    <MockedProvider mocks={mocks} addTypename={false}>
-      <CartContextProvider>
-        <ThemeProvider theme={theme}>
-          <Product />
-        </ThemeProvider>
-      </CartContextProvider>
-    </MockedProvider>
+    <TestWrapper>
+      <Product />
+    </TestWrapper>
   );
 
   expect(await screen.findByText("Loading...")).toBeInTheDocument();
@@ -55,13 +60,9 @@ test("should be able to increase and decrease product quantity", async () => {
 
 test("should be able to add items to the basket", async () => {
   const { getByText, getByTitle } = render(
-    <MockedProvider mocks={mocks} addTypename={false}>
-      <CartContextProvider>
-        <ThemeProvider theme={theme}>
-          <Product />
-        </ThemeProvider>
-      </CartContextProvider>
-    </MockedProvider>
+    <TestWrapper>
+      <Product />
+    </TestWrapper>
   );
 
   expect(await screen.findByText("Loading...")).toBeInTheDocument();

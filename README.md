@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -12,29 +10,27 @@ yarn dev
 pnpm dev
 ```
 
-Deployed App URL: [https://product-test-pi.vercel.app/](https://product-test-pi.vercel.app/)
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Running tests
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run test
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Caveats
 
-## Learn More
+The test was looking for basket item count, which wasn't included in the design. I made some assumptions to get the tests to pass was that was the primary request for the test
+Also I had to add a wrapper to the tests to get them to pass because we are testing a route and the route relies on all sorts of contexts and providers. I would use Playwrite to avoid all the mocking in the future, tests might take longer to run but they are closer to the user experience and a much better DX
 
-To learn more about Next.js, take a look at the following resources:
+I used Apollo for the GraphQL client (and server) just to test it out. Looking at the work invloved to get Apollo working with SSR SSG, I would probably just use a query builder and fetch and SWR or React Query so I don't need to write my own helpers for hydration to work with all sorts of deep merging and deep equality checks. This looks like an ecomm app so I would definitely want most of this to be rendered on the server not the client. Also I wouldn't store the basket state in context I would store it on the server. So if someone closed their browser and came back again we wouldn't loose their custom with a bad UX.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I wanted to see if I could run the API in the same next JS instance in stead of a separate service. I hope this is seen more as a flex than going against the grain of the test. Again I haven't touched graphql since I was in Mixcloud 3-4 years ago so I wanted to see what it was like to write my own resolver. It also feels a bit neater.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+With time I would have monorepoed this and had the UI components in a separte package, it also takes up the lions share of the types.ts so would clean up that file too.
+I also would have a more comprehensive them that used colour and token colours so I could write primary or buttonHover etc instead of tokenColour names like sohoLights.
 
-## Deploy on Vercel
+## Deployed on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Deployed App URL: [https://product-test-pi.vercel.app/](https://product-test-pi.vercel.app/)
